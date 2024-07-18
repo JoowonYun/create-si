@@ -35,14 +35,16 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
+      - name: Install yarn
+        run: npm install --location=global yarn
+      - name: Package install
+        run: yarn
       - name: Build
         run: npm run build
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           # dist 디렉터리 업로드
           path: './dist'

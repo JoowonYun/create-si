@@ -1,24 +1,24 @@
 import './App.css'
 
-import dog1 from './assets/dog/1.png';
-import dog2 from './assets/dog/2.png';
-import dog3 from './assets/dog/3.png';
-import dog4 from './assets/dog/4.png';
-import dog5 from './assets/dog/5.png';
-import dog6 from './assets/dog/6.png';
-import dog7 from './assets/dog/7.png';
-import dog8 from './assets/dog/8.png';
-import dog9 from './assets/dog/9.png';
+import dog1 from '/dog/1.png';
+import dog2 from '/dog/2.png';
+import dog3 from '/dog/3.png';
+import dog4 from '/dog/4.png';
+import dog5 from '/dog/5.png';
+import dog6 from '/dog/6.png';
+import dog7 from '/dog/7.png';
+import dog8 from '/dog/8.png';
+import dog9 from '/dog/9.png';
 
-import clothes1 from './assets/clothes/1.png';
-import clothes2 from './assets/clothes/2.png';
-import clothes3 from './assets/clothes/3.png';
-import clothes4 from './assets/clothes/4.png';
-import clothes5 from './assets/clothes/5.png';
-import clothes6 from './assets/clothes/6.png';
-import clothes7 from './assets/clothes/7.png';
-import clothes8 from './assets/clothes/8.png';
-import clothes9 from './assets/clothes/9.png';
+import clothes1 from '/clothes/1.png';
+import clothes2 from '/clothes/2.png';
+import clothes3 from '/clothes/3.png';
+import clothes4 from '/clothes/4.png';
+import clothes5 from '/clothes/5.png';
+import clothes6 from '/clothes/6.png';
+import clothes7 from '/clothes/7.png';
+import clothes8 from '/clothes/8.png';
+import clothes9 from '/clothes/9.png';
 import { useState } from 'react';
 
 function App() {
@@ -62,12 +62,12 @@ function App() {
     // Draw the dog image on the canvas
     const dogImg = new Image()
     dogImg.src = dogImage;
-    context && context.drawImage(dogImg, 0, 0, dogImg.width, dogImg.height);
+    context && context.drawImage(dogImg, 20, 0, dogImg.width, dogImg.height);
   
     // Draw the clothes image on the canvas
     const clothesImage = new Image()
     clothesImage.src = clothesImagePath;
-    context && context.drawImage(clothesImage, 0, 0, clothesImage.width, clothesImage.height);
+    context && context.drawImage(clothesImage, 0, 380, clothesImage.width, clothesImage.height);
   
     // Get the combined image as a data URL
     const combinedImage = canvas.toDataURL();
@@ -75,7 +75,7 @@ function App() {
     return combinedImage;
   };
 
-  let combinedImage
+  let combinedImage: string = "";
   if (selectedDog || selectedClothes) {
     combinedImage = combineImages(selectedDog, selectedClothes);
     // Display the combined image
